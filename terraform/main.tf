@@ -20,7 +20,7 @@ resource "aws_instance" "jenkins_ec2" {
     connection {
       type        = "ssh"
       user        = "ec2-user"
-      private_key = file("~/.ssh/your-key.pem")  # Replace with path to your .pem file
+      private_key = file("${path.module}/social-jenkins.pem")  # Replace with path to your .pem file
       host        = self.public_ip
     }
   }
