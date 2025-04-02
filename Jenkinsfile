@@ -10,7 +10,7 @@ pipeline {
 
     stage('Terraform Init & Apply') {
       steps {
-        dir('infrastructure/terraform'){
+        dir('terraform'){
           bat 'terraform init'
           bat 'terraform apply -auto-approve'
         }
