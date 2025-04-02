@@ -8,15 +8,32 @@ pipeline {
       }
     }
 
+    stage('Terraform Init & Apply') {
+      steps {
+        dir('infrastructure/terraform') {
+          sh 'terraform init'
+          sh 'terraform apply -auto-approve'
+        }
+      }
+    }
+
+    stage('Ansible Provisioning') {
+      steps {
+        dir('infrastructure/ansible') {
+          sh 'ansible-playbook -i inventory setup.yml'
+        }
+      }
+    }
+
     stage('Install Dependencies') {
       steps {
-        bat 'npm install'
+        sh 'npm install'
       }
     }
 
     stage('Run App') {
       steps {
-        bat 'npm run dev'
+        sh 'npm run dev'
       }
     }
   }
