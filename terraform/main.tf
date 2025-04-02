@@ -5,7 +5,7 @@ provider "aws" {
 resource "aws_instance" "jenkins_ec2" {
   ami           = "ami-0c55b159cbfafe1f0" # Amazon Linux 2 AMI (replace with latest for your region)
   instance_type = "t2.micro"
-  key_name      = "your-key-name"         # Replace with your key pair name
+  key_name      = "social-jenkins"         # Replace with your key pair name
 
   tags = {
     Name = "Terraform-Jenkins-EC2"
