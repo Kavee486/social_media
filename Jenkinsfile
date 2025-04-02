@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Clone Repo') {
       steps {
-        git 'https://github.com/Kavee486/social_media.git'
+        git branch: 'main', url: 'https://github.com/Kavee486/social_media.git'
       }
     }
 
@@ -21,4 +21,3 @@ pipeline {
     }
   }
 }
-
